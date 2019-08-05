@@ -2,7 +2,6 @@
 
 * {
   box-sizing: border-box;
-  border: 1px dashed black;
 }
 
 body {
@@ -53,6 +52,7 @@ section {
   padding: 2% 0;
   padding-bottom: 6;
   background-color: #bbb;
+  border-radius: 5px;
 }
 
 section:nth-child(even) {
