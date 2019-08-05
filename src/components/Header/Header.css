@@ -3,14 +3,22 @@ h1 {
   background-color:coral;
   margin-bottom: 0px;
 }
+header {
+  padding-top: 2%;
+  padding-bottom: none;
+}
 
 li a:hover {
   background-color: #111;
 }
 
-header {
-  padding-top: 2%;
-  padding-bottom: none;
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  text-align: center;
 }
 
 nav a:hover {
@@ -26,4 +34,11 @@ nav a {
   font-weight: 700;
   cursor: pointer;
   font-size: 20px;
+}
+
+@media only screen and (min-width: 1025px) {
+  nav, header {
+    max-width: 50%;
+    margin: 0 auto;
+  }
 }
