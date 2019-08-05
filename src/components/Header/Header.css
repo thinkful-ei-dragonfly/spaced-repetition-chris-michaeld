@@ -1,14 +1,7 @@
 h1 {
-  display: block;
   font-size: 2em;
-  font-weight: bold;
-}
-
-li a {
-  display:inline-block;
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
+  background-color:coral;
+  margin-bottom: 0px;
 }
 
 li a:hover {
@@ -16,9 +9,13 @@ li a:hover {
 }
 
 header {
-  padding: 1% 0;
+  padding-top: 2%;
+  padding-bottom: none;
 }
 
+nav a:hover {
+  background-color: #111;
+}
 nav a {
   background: blue;
   border: none;
