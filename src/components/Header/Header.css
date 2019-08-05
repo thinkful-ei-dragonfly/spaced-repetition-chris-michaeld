@@ -1,39 +1,45 @@
 h1 {
   font-size: 2em;
-  background-color:coral;
   margin-bottom: 0px;
+  background-color: #706d6d;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
 }
 header {
   padding-top: 2%;
   padding-bottom: none;
 }
 
-li a:hover {
-  background-color: #111;
-}
-
 nav {
-  position: fixed;
+  display: inline;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  text-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  transition: .4s background-color;
+  border: none;
+  padding: 10px 2%;
+  width: 100%;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1em;
 }
 
 nav a:hover {
   background-color: #111;
 }
-nav a {
-  background: blue;
-  border: none;
-  padding: 10px 2%;
-  text-align: center;
-  width: 100%;
-  color: #fff;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 20px;
+
+nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
 }
 
 @media only screen and (min-width: 1025px) {

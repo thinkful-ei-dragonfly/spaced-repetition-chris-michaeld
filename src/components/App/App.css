@@ -18,9 +18,6 @@ footer {
   background-color: #aaa;
 }
 
-
-
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -43,7 +40,6 @@ section {
   margin: 0 auto;
   min-height: 200px;
   padding: 2% 0;
-  padding-bottom: 6;
   background-color: #bbb;
   border-radius: 5px;
 }
