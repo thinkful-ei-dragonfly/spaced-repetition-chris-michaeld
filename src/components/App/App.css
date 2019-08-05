@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  border: 1px solid #fff;
+
+}
+
+body {
+  font-family: "Open Sans",
+  sans-serif; 
+  font-size: 20px;
+  color: #444;
+  text-align: center;
+  line-height: 1.5;
+}
+
+nav,
+footer {
+  padding: 1% 0;
+  background-color: #aaa;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  text-align: center;
+}
+
+.ingredientSearch {
+  font-size: 40px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  background-color: #aaa;
+}
+
+@media only screen and (max-width: 640px) {
+  .navList li {
+    font-size: 15px;
+  }
+
+}
+@media only screen and (max-width: 1025px) {
+.submit, .goback, .clear, .moreinfo {
+  border: white solid 2px;
+}
+}
+
+section {
+  min-height: 200px;
+  padding: 2% 0;
+  padding-bottom: 6;
+  background-color: #bbb;
+}
+
+section:nth-child(even) {
+  background-color: #ddd;
+}
+.section {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.top {
+  margin-top: 100px;
+}
+
+.goback {
+  height:40px;
+  width:200px;
+  font-size: 20px;
+}
+
+.clear {
+  height:30px;
+  width:100px;
+  font-size: 12px;
+  margin-bottom: 30px;
+}
+
+#form-container {
+  width: 400px;
+  margin: 40px auto;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
