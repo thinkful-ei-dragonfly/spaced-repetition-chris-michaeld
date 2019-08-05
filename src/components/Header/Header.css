@@ -19,14 +19,14 @@ header {
   padding: 1% 0;
 }
 
-.navList li {
-  display: inline;
-}
-
-@media only screen and (max-width: 640px) {
-
-}
-
-@media only screen and (max-width: 1025px) {
-
+nav a {
+  background: blue;
+  border: none;
+  padding: 10px 2%;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 20px;
 }
