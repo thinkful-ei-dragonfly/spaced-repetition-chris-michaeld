@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Nunito+Sans&display=swap');
+
 * {
   box-sizing: border-box;
   border: 1px dashed black;
 }
 
 body {
-  font-family: "Open Sans",
-  sans-serif; 
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 20px;
   color: #444;
   text-align: center;
@@ -37,7 +38,7 @@ ul {
 
 @media only screen and (max-width: 640px) {
   section {
-    max-width: 100%;
+    max-width: 0%;
   }
 }
 @media only screen and (min-width: 1025px) {
@@ -60,6 +61,10 @@ section:nth-child(even) {
 
 .top {
   margin-top: 100px;
+}
+
+h1, h2, h3 {
+  font-family: 'Lato', 'sans-serif';
 }
 
 

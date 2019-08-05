@@ -46,7 +46,7 @@ class Header extends Component {
           : this.renderLoginLink()}
         <h1>
           <Link to='/'>
-            Spaced repetition
+            Spaced Repetition
           </Link>
         </h1>
       </header>
