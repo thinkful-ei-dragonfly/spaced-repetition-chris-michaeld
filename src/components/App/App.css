@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
-  border: 1px solid #fff;
-
+  border: 1px dashed black;
 }
 
 body {
@@ -28,9 +27,6 @@ nav {
   text-align: center;
 }
 
-.ingredientSearch {
-  font-size: 40px;
-}
 
 ul {
   list-style-type: none;
@@ -40,18 +36,18 @@ ul {
 }
 
 @media only screen and (max-width: 640px) {
-  .navList li {
-    font-size: 15px;
+  section {
+    max-width: 100%;
   }
-
 }
-@media only screen and (max-width: 1025px) {
-.submit, .goback, .clear, .moreinfo {
-  border: white solid 2px;
-}
+@media only screen and (min-width: 1025px) {
+  section {
+    max-width: 50%;
+  }
 }
 
 section {
+  margin: 0 auto;
   min-height: 200px;
   padding: 2% 0;
   padding-bottom: 6;
@@ -61,30 +57,9 @@ section {
 section:nth-child(even) {
   background-color: #ddd;
 }
-.section {
-  max-width: 600px;
-  margin: 0 auto;
-}
 
 .top {
   margin-top: 100px;
 }
 
-.goback {
-  height:40px;
-  width:200px;
-  font-size: 20px;
-}
 
-.clear {
-  height:30px;
-  width:100px;
-  font-size: 12px;
-  margin-bottom: 30px;
-}
-
-#form-container {
-  width: 400px;
-  margin: 40px auto;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
