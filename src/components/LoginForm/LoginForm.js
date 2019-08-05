@@ -45,6 +45,7 @@ class LoginForm extends Component {
     return (
       <form
         className='LoginForm'
+        id="form-container"
         onSubmit={this.handleSubmit}
       >
         <div role='alert'>
@@ -72,9 +73,7 @@ class LoginForm extends Component {
             required
           />
         </div>
-        <Button type='submit'>
-          Login
-        </Button>
+        <Input type="submit" value="Login"/>
       </form>
     )
   }
