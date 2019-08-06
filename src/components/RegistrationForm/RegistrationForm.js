@@ -79,15 +79,9 @@ class RegistrationForm extends Component {
           />
         </div>
           <div>
-<<<<<<< HEAD
-            <button type="submit" value="Register">
-              Sign up
-              </button>
-=======
           <Button type="submit">
           Sign up
           </Button>
->>>>>>> e7f3827bbf61f0bae4bbc770cb8a2af2e62fc466
           </div>
           {' '}
           <Link className="already" to='/login'>Already have an account?</Link>

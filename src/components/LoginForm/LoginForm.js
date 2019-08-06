@@ -80,17 +80,11 @@ class LoginForm extends Component {
            required
          />
        </div>
-<<<<<<< HEAD
-       <button type="submit" value="Login">
-       Login
-       </button>
-=======
        <div className="form-footer">
        <Button type="submit" className="loginButton">
         Login
        </Button>
        </div>
->>>>>>> e7f3827bbf61f0bae4bbc770cb8a2af2e62fc466
      </form>
     )
   }

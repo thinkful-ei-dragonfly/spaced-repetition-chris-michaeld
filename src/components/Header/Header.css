@@ -1,13 +1,12 @@
 h1 {
   font-size: 2em;
   margin-bottom: 0px;
-  background-color: #706d6d;
-  border-top: 1px solid #000000;
-  border-bottom: 1px solid #000000;
 }
 
-
-
+a {
+  text-decoration: none;
+  color: #444;
+}
 
 li a:hover {
   background-color: #484848;
@@ -18,51 +17,22 @@ header {
   padding-bottom: none;
 }
 
-<<<<<<< HEAD
-nav {
-  display: inline;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+nav a:hover {
+  background-color: #484848;
 }
-
-nav a {
-  text-decoration: none;
-  color: #fff;
-  transition: .4s background-color;
-
 
 h1:hover {
   background-color: whitesmoke;
 }
 
-
+nav a {
   border: none;
   padding: 10px 2%;
+  text-align: center;
   width: 100%;
-<<<<<<< HEAD
- color: whitesmoke;
-  font-weight: 600;
+  color: whitesmoke;
+  font-weight: 700;
   cursor: pointer;
-  font-size: 1em;
-}
-
-nav a:hover {
-  background-color: #111;
-}
-
-nav a.active {
-  background-color: #fff;
-  color: #444;
-  cursor: default;
-}
-
-@media only screen and (min-width: 1025px) {
-  nav, header {
-    max-width: 50%;
-    margin: 0 auto;
-  }
+  font-size: 20px;
 }
 
