@@ -27,6 +27,16 @@ export default class Dashboard extends Component {
         )
     }
 
+    renderLanguageInfo = () => {
+        const {language = {}} = this.context
+        return (
+            <>
+            <h2>Learn {language.name}</h2>
+            <p>Your Score: {language.total_score}</p>
+            </>
+        )
+    }
+
     renderSubHeading = () => {
         const {words = []} = this.context
         const list = words.map(word => {
@@ -54,6 +64,7 @@ export default class Dashboard extends Component {
             <>
                 <h2>Dashboard</h2>
                 {this.renderUserInfo()}
+                {this.renderLanguageInfo()}
                 {this.renderSubHeading()}
             </>
         )

@@ -11,6 +11,8 @@ const UserContext = React.createContext({
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
+  setWords: () => [],
+  setLanguage: () => {},
   processLogin: () => {},
   processLogout: () => {},
 })
