@@ -1,5 +1,4 @@
 input[type=submit] {
-	background: blue;
 	border: none;
 	padding: 10px 2%;
 	text-align: center;
@@ -8,11 +7,27 @@ input[type=submit] {
 	font-weight: 700;
     cursor: pointer;
     font-size: 20px;
+    border-radius: 0px 0px 15px 15px;
 }
 
 #form-container {
     width: 66%;
     margin: 40px auto;
-    box-shadow: 5px 5px 10px;
-    border-radius: 15px 15px 15px 15px;
+    box-shadow: 2.5px 2.5px 5px;
+    border-radius: 15px;
   }
+
+Button:hover {
+    cursor: pointer;
+}
+
+Button {
+    text-align:center;
+    text-transform: uppercase;
+    font-variant: small-caps;
+    height: 30px;
+    width: 50%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    font-size: 100%;
+}

@@ -1,0 +1,17 @@
+
+Button:hover {
+    cursor: pointer;
+}
+
+Button {
+    text-align:center;
+    text-transform: uppercase;
+    font-variant: small-caps;
+    height: 30px;
+    width: 50%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    font-size: 100%;
+    background-color:  #424242;
+    color: whitesmoke;
+}

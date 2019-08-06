@@ -4,6 +4,9 @@ import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../contexts/UserContext'
 import Button from '../Button/Button'
 
+import {  } from "@fortawesome/free-solid-svg-icons";
+import {  } from "@fortawesome/react-fontawesome";
+
 class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => { }
@@ -52,30 +55,42 @@ class LoginForm extends Component {
          {error && <p>{error}</p>}
        </div>
        <div>
-         <Label htmlFor='login-username-input'>
-           Username
+         <span className="fas fa-user"></span>
+         <Label htmlFor='login-username-input' className="input">
+         Username
          </Label>
          <Input
            ref={this.firstInput}
            id='login-username-input'
            name='username'
+           placeHolder='Username'
            required
          />
        </div>
        <div>
-         <Label htmlFor='login-password-input'>
+         <span className="fas fa-lock"></span>
+         <Label htmlFor='login-password-input' className="input">
            Password
          </Label>
          <Input
            id='login-password-input'
            name='password'
            type='password'
+           placeHolder='Password'
            required
          />
        </div>
+<<<<<<< HEAD
        <button type="submit" value="Login">
        Login
        </button>
+=======
+       <div className="form-footer">
+       <Button type="submit" className="loginButton">
+        Login
+       </Button>
+       </div>
+>>>>>>> e7f3827bbf61f0bae4bbc770cb8a2af2e62fc466
      </form>
     )
   }

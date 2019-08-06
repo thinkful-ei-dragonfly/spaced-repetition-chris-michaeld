@@ -1,0 +1,13 @@
+p {
+    color: #424242;
+    letter-spacing:0.1em;
+    text-align:center;
+    padding-left: 25%;
+    padding-right: 25%;
+    margin: 40px auto;
+    text-transform: lowercase;
+    line-height: 145%;
+    font-size: 14pt;
+    font-variant: small-caps;
+    }
+

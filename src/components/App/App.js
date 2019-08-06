@@ -50,6 +50,7 @@ export default class App extends Component {
             />
           </Switch>
         </main>
+        <footer>Michael D. & Chris F.</footer>
       </div>
     );
   }
