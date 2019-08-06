@@ -1,11 +1,15 @@
 h1 {
   font-size: 2em;
-  background-color:coral;
   margin-bottom: 0px;
 }
 
+a {
+  text-decoration: none;
+  color: #444;
+}
+
 li a:hover {
-  background-color: #111;
+  background-color: #484848;
 }
 
 header {
@@ -14,10 +18,14 @@ header {
 }
 
 nav a:hover {
-  background-color: #111;
+  background-color: #484848;
 }
+
+h1:hover {
+  background-color: whitesmoke;
+}
+
 nav a {
-  background: blue;
   border: none;
   padding: 10px 2%;
   text-align: center;
@@ -27,3 +35,4 @@ nav a {
   cursor: pointer;
   font-size: 20px;
 }
+
