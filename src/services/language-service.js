@@ -11,7 +11,7 @@ const LanguageService = {
           .then(res =>
             (!res.ok)
               ? res.json().then(e => Promise.reject(e))
-              : console.log(res.json())
+              : res.json()
           )
       },
 }

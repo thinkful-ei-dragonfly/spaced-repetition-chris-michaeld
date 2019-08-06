@@ -7,18 +7,45 @@ export default class Dashboard extends Component {
     static contextType = UserContext
 
     componentDidMount() {
-        const user = this.context.user.id;
-
+        setTimeout( () => {
         this.setState({ error: null })
         LanguageService.getUserInfo()
+        .then(res => {
+            this.context.setLanguage(res.language)
+            this.context.setWords(res.words)
+          })
+          .catch(res => {
+            this.setState({ error: res.error })
+          })
+        },600)
+        
     }
+
     renderUserInfo = () => {
-        console.log(this.context.user)
         return (
-            <div>
                 <p>{this.context.user.name}'s stats and information:</p>
-                ID NUMBER: {this.context.user.id}
-            </div>
+        )
+    }
+
+    renderSubHeading = () => {
+        const {words = []} = this.context
+        const list = words.map(word => {
+            return <li key={word.id} className="wordListItem">
+            Word {word.id} {word.original} 
+            <br/>
+            correct answer count: {word.correct_count} 
+            <br/>
+            incorrect answer count: {word.incorrect_count}
+            </li>
+        })
+        console.log(this.context.words)
+        return (
+            <>
+            <h3>Words to practice</h3>
+            <ul className="wordList">
+            {list}
+            </ul>
+            </>
         )
     }
     
@@ -27,6 +54,7 @@ export default class Dashboard extends Component {
             <>
                 <h2>Dashboard</h2>
                 {this.renderUserInfo()}
+                {this.renderSubHeading()}
             </>
         )
     }
