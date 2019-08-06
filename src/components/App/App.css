@@ -59,7 +59,7 @@ ul {
 
 @media only screen and (max-width: 640px) {
   section {
-    max-width: 0%;
+    width: 95%;
   }
 }
 @media only screen and (min-width: 1025px) {
