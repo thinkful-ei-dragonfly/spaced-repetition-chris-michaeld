@@ -15,6 +15,10 @@ body {
   font-variant: small-caps;
 }
 
+main {
+  padding-bottom: 100px;
+}
+
 nav,
 footer {
   padding: 1% 0;
@@ -54,12 +58,12 @@ ul {
   list-style-type: none;
   margin: 0;
   overflow: hidden;
-  background-color: #aaa;
+  /* background-color: #aaa; */
 }
 
 @media only screen and (max-width: 640px) {
   section {
-    max-width: 0%;
+    width: 95%;
   }
 }
 @media only screen and (min-width: 1025px) {
@@ -72,9 +76,11 @@ section {
   margin: 0 auto;
   min-height: 200px;
   padding: 2% 0;
-  padding-bottom: 6;
+  padding-bottom: 10%;
   background-color: whitesmoke;
   border-radius: 5px;
+  margin-top: 2.5%;
+  box-shadow: 5px 5px 10px;
 }
 
 section:nth-child(even) {
@@ -101,10 +107,6 @@ h1, h2, h3 {
   
 }
 
-.authSection {
-  margin-top: 2.5%;
-  box-shadow: 5px 5px 10px;
-}
 
 Label {
   padding-right: 5px;
@@ -115,4 +117,24 @@ Label {
   margin: 10px 0;
   padding: 10px;
   width: 100%;
+}
+
+.wordList {
+  padding-left: 0;
+  padding-bottom: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wordListItem {
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 70%;
+  border: solid #424242 1px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px;
 }

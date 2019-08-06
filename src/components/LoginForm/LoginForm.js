@@ -63,7 +63,7 @@ class LoginForm extends Component {
            ref={this.firstInput}
            id='login-username-input'
            name='username'
-           placeHolder='Username'
+           placeholder='Username'
            required
          />
        </div>
@@ -76,7 +76,7 @@ class LoginForm extends Component {
            id='login-password-input'
            name='password'
            type='password'
-           placeHolder='Password'
+           placeholder='Password'
            required
          />
        </div>
