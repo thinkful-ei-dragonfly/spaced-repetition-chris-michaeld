@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import LanguageService from '../../services/language-service'
 import UserContext from '../../contexts/UserContext';
+import Button from '../Button/Button'
 
 export default class Dashboard extends Component {
     static contextType = UserContext
@@ -32,7 +33,8 @@ export default class Dashboard extends Component {
         return (
             <>
             <h2>Learn {language.name}</h2>
-            <p>Your Score: {language.total_score}</p>
+            <p>Total correct answers: {language.total_score}</p>
+            <Link className="practiceButton" to='/learn'>Start practicing</Link>
             </>
         )
     }
@@ -41,7 +43,7 @@ export default class Dashboard extends Component {
         const {words = []} = this.context
         const list = words.map(word => {
             return <li key={word.id} className="wordListItem">
-            Word {word.id} {word.original} 
+            <h4>{word.original}</h4>
             <br/>
             correct answer count: {word.correct_count} 
             <br/>
@@ -62,7 +64,7 @@ export default class Dashboard extends Component {
     render() {
         return (
             <>
-                <h2>Dashboard</h2>
+                <h1 className="dashboard">Dashboard</h1>
                 {this.renderUserInfo()}
                 {this.renderLanguageInfo()}
                 {this.renderSubHeading()}
