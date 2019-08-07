@@ -54,6 +54,8 @@ nav {
 }
 
 .dashboard {
+  font-family: 'Lato';
+  font-size: 20px;
   margin-top: 0;
   background-color: #424242;
   color: whitesmoke;
@@ -153,5 +155,8 @@ Label {
 }
 
 .practiceButton {
-  color: whitesmoke;
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  color: #424242;
 }
