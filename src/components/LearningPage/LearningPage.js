@@ -24,9 +24,30 @@ renderNextWord() {
   console.log(nextWord)
   return (
   <div>
-    <h2>{nextWord.nextWord}</h2>
-    <h4>Current Score: {nextWord.totalScore}</h4>
+    <h2>Translate the word:</h2>
+    <span>{nextWord.nextWord}</span>
+    <p>Your total score is: {nextWord.totalScore}</p>
   </div>
+  )
+}
+
+renderForm() {
+  return (
+    <form className="enterGuess">
+    <Label for='learn-guess-input'>What's the translation for this word?</Label>
+    <Input type="text" id='learn-guess-input' className='guessInput' required></Input>
+    <Button type="submit">Submit your answer</Button>
+    </form>
+  )
+}
+
+renderScore() {
+  const {nextWord = {}} = this.context
+  return (
+    <div>
+    <p>You have answered this word correctly {nextWord.wordCorrectCount} times.</p>
+    <p>You have answered this word incorrectly {nextWord.wordIncorrectCount} times.</p>
+    </div>
   )
 }
 
@@ -35,6 +56,8 @@ renderNextWord() {
     return (
       <>
       {this.renderNextWord()}
+      {this.renderForm()}
+      {this.renderScore()}
       </>
     )
   }
