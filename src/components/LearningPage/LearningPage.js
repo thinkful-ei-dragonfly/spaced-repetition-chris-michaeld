@@ -31,11 +31,33 @@ renderNextWord() {
   )
 }
 
+renderForm() {
+  return (
+    <form className="enterGuess">
+    <Label for='learn-guess-input'>What's the translation for this word?</Label>
+    <Input type="text" id='learn-guess-input' className='guessInput' required></Input>
+    <Button type="submit">Submit your answer</Button>
+    </form>
+  )
+}
+
+renderScore() {
+  const {nextWord = {}} = this.context
+  return (
+    <div>
+    <p>You have answered this word correctly {nextWord.wordCorrectCount} times.</p>
+    <p>You have answered this word incorrectly {nextWord.wordIncorrectCount} times.</p>
+    </div>
+  )
+}
+
   static contextType = UserContext
   render() {
     return (
       <>
       {this.renderNextWord()}
+      {this.renderForm()}
+      {this.renderScore()}
       </>
     )
   }
