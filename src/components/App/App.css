@@ -57,13 +57,9 @@ nav {
   margin-top: 0;
   background-color: #424242;
   color: whitesmoke;
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;*/
   border-radius: 5px 5px 0 0; 
 }
+
 
 ul {
   list-style-type: none;
@@ -150,8 +146,4 @@ Label {
   border: solid #424242 1px;
   border-radius: 5px;
   box-shadow: 2px 2px 4px;
-}
-
-.practiceButton {
-  color: whitesmoke;
 }
