@@ -54,6 +54,8 @@ nav {
 }
 
 .dashboard {
+  font-family: 'Lato';
+  font-size: 20px;
   margin-top: 0;
   background-color: #424242;
   color: whitesmoke;

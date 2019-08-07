@@ -64,7 +64,7 @@ export default class Dashboard extends Component {
     render() {
         return (
             <>
-                <h1 className="dashboard">Dashboard</h1>
+                <p className="dashboard">Dashboard</p>
                 {this.renderUserInfo()}
                 {this.renderLanguageInfo()}
                 {this.renderSubHeading()}
