@@ -8,10 +8,12 @@ const UserContext = React.createContext({
   error: null,
   language: {},
   words: [],
+  nextWord: {},
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
   setWords: () => [],
+  setNextWord: () => {},
   setLanguage: () => {},
   processLogin: () => {},
   processLogout: () => {},
@@ -70,8 +72,12 @@ export class UserProvider extends Component {
   }
 
   setWords = words => {
-    console.log(words)
     this.setState({ words })
+  }
+
+  setNextWord = word => {
+    console.log(word)
+    this.setState({ nextWord: word })
   }
 
   processLogin = authToken => {
@@ -82,7 +88,7 @@ export class UserProvider extends Component {
       name: jwtPayload.name,
       username: jwtPayload.sub,
     })
-    IdleService.regiserIdleTimerResets()
+    IdleService.registerIdleTimerResets()
     TokenService.queueCallbackBeforeExpiry(() => {
       this.fetchRefreshToken()
     })
@@ -121,11 +127,13 @@ export class UserProvider extends Component {
       error: this.state.error,
       words: this.state.words,
       language: this.state.language,
+      nextWord: this.state.nextWord,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
       setLanguage: this.setLanguage,
       setWords: this.setWords,
+      setNextWord: this.setNextWord,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
     }

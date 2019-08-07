@@ -8,12 +8,24 @@ const LanguageService = {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`,
             },
         })
-          .then(res =>
-            (!res.ok)
-              ? res.json().then(e => Promise.reject(e))
-              : res.json()
-          )
-      },
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+    getNextWord() {
+        return fetch(`${config.API_ENDPOINT}/language/head`, {
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    }
 }
 
 export default LanguageService
