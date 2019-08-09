@@ -9,11 +9,14 @@ const UserContext = React.createContext({
   language: {},
   words: [],
   nextWord: {},
+  answer: {},
+  isCorrect: 1,
   setError: () => {},
   clearError: () => {},
   setUser: () => {},
   setWords: () => [],
   setNextWord: () => {},
+  setanswer: () => {},
   setLanguage: () => {},
   processLogin: () => {},
   processLogout: () => {},
@@ -80,6 +83,11 @@ export class UserProvider extends Component {
     this.setState({ nextWord: word })
   }
 
+  setAnswer = answer => {
+    this.setState({answer})
+  }
+
+  
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
     const jwtPayload = TokenService.parseAuthToken()
@@ -128,11 +136,13 @@ export class UserProvider extends Component {
       words: this.state.words,
       language: this.state.language,
       nextWord: this.state.nextWord,
+      answer: this.answer,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
       setLanguage: this.setLanguage,
       setWords: this.setWords,
+      setAnswer: this.setAnswer,
       setNextWord: this.setNextWord,
       processLogin: this.processLogin,
       processLogout: this.processLogout,

@@ -21,25 +21,24 @@ export default class LearningPage extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const { guess } = ev.target
-
-    this.setState({ error: null })
-
+    const {guess} = ev.target
+    console.log(guess.value)
     LanguageService.postGuess({
       guess: guess.value
     })
-      .then(res => {
-        guess.value = ''
-      })
-      .catch(res => {
-        this.setState({ error: res.error })
-      })
+    .then(res => {
+      guess.value = ''
+      console.log(res)
+      // this.context.processLogin(res)
+    })
+    .catch(res => {
+      this.setState({ error: res.error })
+    })
   }
 
 
   renderNextWord() {
     const { nextWord = {} } = this.context
-    console.log(nextWord)
     return (
       <div>
         <h2>Translate the word:</h2>
@@ -51,9 +50,9 @@ export default class LearningPage extends Component {
 
   renderForm() {
     return (
-      <form className="enterGuess">
-        <Label for='learn-guess-input'>What's the translation for this word?</Label>
-        <Input type="text" id='learn-guess-input' className='guessInput' required></Input>
+      <form className="enterGuess" onSubmit={this.handleSubmit}>
+        <Label hmtlFor='learn-guess-input'>What's the translation for this word?</Label>
+        <Input type="text" id='learn-guess-input' className='guessInput' name="guess" required></Input>
         <Button type="submit">Submit your answer</Button>
       </form>
     )
@@ -65,6 +64,15 @@ export default class LearningPage extends Component {
       <div>
         <p>You have answered this word correctly {nextWord.wordCorrectCount} times.</p>
         <p>You have answered this word incorrectly {nextWord.wordIncorrectCount} times.</p>
+      </div>
+    )
+  }
+
+  renderCorrectAnswer() {
+    const {answer = {}} = this.context
+    return (
+      <div>
+        <p>Correct! The correct answer is {answer.answer}</p>
       </div>
     )
   }
