@@ -51,7 +51,7 @@ export default class LearningPage extends Component {
   renderForm() {
     return (
       <form className="enterGuess" onSubmit={this.handleSubmit}>
-        <Label hmtlFor='learn-guess-input'>What's the translation for this word?</Label>
+        <Label htmlFor='learn-guess-input'>What's the translation for this word?</Label>
         <Input type="text" id='learn-guess-input' className='guessInput' name="guess" required></Input>
         <Button type="submit">Submit your answer</Button>
       </form>
