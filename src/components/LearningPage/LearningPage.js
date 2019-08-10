@@ -34,6 +34,13 @@ export default class LearningPage extends Component {
       isCorrect: null,
       answer: {},
     })
+    LanguageService.getNextWord()
+        .then(res => {
+          this.context.setNextWord(res)
+        })
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
   }
 
   handleSubmit = ev => {
@@ -42,7 +49,6 @@ export default class LearningPage extends Component {
     this.setState({
       guess: guess.value
     })
-    console.log(guess.value)
     LanguageService.postGuess({
       guess: guess.value
     })
@@ -53,6 +59,13 @@ export default class LearningPage extends Component {
         })
         this.context.handleSubmit(this.state.answer)
         console.log(this.context)
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
+      LanguageService.getNextWord()
+      .then(res => {
+        this.context.setNextWord(res)
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -96,9 +109,14 @@ export default class LearningPage extends Component {
     return (
       <>
       <div className='DisplayScore'>
-        <p>Correct! The correct answer is {this.state.answer.totalScore}</p>
-        <h2>`Good try, but not quite right :(`</h2>
-        Your total score is: {nextWord.totalScore}`
+        <p>Your total score is: {nextWord.totalScore}</p>
+        <h2>You were correct! :D</h2>
+      </div>
+      <div className='DisplayFeedback'>
+        <p>The correct translation for {this.context.nextWord.nextWord} was {this.state.answer.answer} and you chose {this.state.guess}!</p>
+        <Button type='button' onClick={this.handleNextClick}>
+          Try another word!
+        </Button>
       </div>
       </>
     )
@@ -107,13 +125,20 @@ export default class LearningPage extends Component {
   renderIncorrect() {
     const { nextWord = {} } = this.context
     return (
+      <>
       <div className='DisplayScore'>
-        <p> Your total score is: {nextWord.totalScore} </p>
-        <br/>
-        <h2>`Good try, but not quite right :(`</h2>
-        <p>`The correct translation for {this.context.nextWord.nextWord} was {this.state.answer.answer} and you chose {this.state.guess}!`</p>
+        <p>Your total score is: {nextWord.totalScore}</p>
+        <h2>Good try, but not quite right :(</h2>
       </div>
-    )
+      <div className='DisplayFeedback'>
+        <p>The correct translation for {this.context.nextWord.nextWord} was {this.state.answer.answer} and you chose {this.state.guess}!</p>
+        <Button type='button' onClick={this.handleNextClick}>
+          Try another word!
+        </Button>
+      </div>
+      </>
+      )
+      
   }
 
   determineRender() {
@@ -121,22 +146,22 @@ export default class LearningPage extends Component {
     if (Object.entries(answer).length === 0 && answer.constructor === Object) {
       return (
         <>
-        {this.renderNextWord()}
-        {this.renderForm()}
-        {this.renderScore()}
+          {this.renderNextWord()}
+          {this.renderForm()}
+          {this.renderScore()}
         </>
       )
     }
     else if (this.state.isCorrect) {
       return (
         <>
-        {this.renderCorrect()}
+          {this.renderCorrect()}
         </>
       )
-    } else if (!this.state.isCorrect){
+    } else if (!this.state.isCorrect) {
       return (
         <>
-        {this.renderIncorrect()}
+          {this.renderIncorrect()}
         </>
       )
     }
@@ -144,7 +169,7 @@ export default class LearningPage extends Component {
   render() {
     return (
       <>
-      {this.determineRender()}
+        {this.determineRender()}
       </>
     )
   }
