@@ -11,6 +11,8 @@ export default class LearningPage extends Component {
       answer: {},
       isCorrect: null,
       guess: null,
+      totalScore: null,
+      nextWord: null,
     }
   }
 
@@ -21,7 +23,11 @@ export default class LearningPage extends Component {
       this.setState({ error: null })
       LanguageService.getNextWord()
         .then(res => {
+          console.log(res.totalScore)
+          this.setState({totalScore: res.totalScore})
+          this.setState({nextWord : res.nextWord})
           this.context.setNextWord(res)
+          
         })
         .catch(res => {
           this.setState({ error: res.error })
@@ -29,18 +35,18 @@ export default class LearningPage extends Component {
     }, 600)
   }
 
+
   handleNextClick = () => {
     this.setState({
       isCorrect: null,
       answer: {},
     })
-    LanguageService.getNextWord()
-        .then(res => {
-          this.context.setNextWord(res)
-        })
-        .catch(res => {
-          this.setState({ error: res.error })
-        })
+    this.setState({
+      totalScore : this.state.answer.totalScore
+    })
+    this.setState({
+      nextWord : this.state.answer.nextWord
+    })
   }
 
   handleSubmit = ev => {
@@ -63,23 +69,19 @@ export default class LearningPage extends Component {
       .catch(res => {
         this.setState({ error: res.error })
       })
-      LanguageService.getNextWord()
-      .then(res => {
-        this.context.setNextWord(res)
-      })
-      .catch(res => {
-        this.setState({ error: res.error })
-      })
   }
 
+  renderSpan() {
+
+  }
 
   renderNextWord() {
     const { nextWord = {} } = this.context
     return (
       <div>
         <h2>Translate the word:</h2>
-        <span>{nextWord.nextWord}</span>
-        <p>Your total score is: {nextWord.totalScore}</p>
+        <span>{this.state.nextWord}</span>
+        <p>Your total score is: {this.state.totalScore}</p>
       </div>
     )
   }
@@ -105,11 +107,10 @@ export default class LearningPage extends Component {
   }
 
   renderCorrect() {
-    const { nextWord = {} } = this.context
     return (
       <>
       <div className='DisplayScore'>
-        <p>Your total score is: {nextWord.totalScore}</p>
+        <p>Your total score is: {this.state.answer.totalScore}</p>
         <h2>You were correct! :D</h2>
       </div>
       <div className='DisplayFeedback'>
