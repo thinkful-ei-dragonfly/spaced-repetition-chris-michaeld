@@ -16,6 +16,7 @@ const UserContext = React.createContext({
   setNextWord: () => { },
   setLanguage: () => { },
   processLogin: () => { },
+  handleSubmit: () => { },
   processLogout: () => { },
 })
 

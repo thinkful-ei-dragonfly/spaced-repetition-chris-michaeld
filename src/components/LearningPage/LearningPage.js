@@ -39,16 +39,17 @@ export default class LearningPage extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const { guess } = ev.target
+    this.setState({
+      guess: guess.value
+    })
     console.log(guess.value)
     LanguageService.postGuess({
       guess: guess.value
     })
       .then(res => {
-        guess.value = ''
         this.setState({
           answer: res,
           isCorrect: res.isCorrect,
-          guess: guess.value
         })
         this.context.handleSubmit(this.state.answer)
         console.log(this.context)
@@ -91,20 +92,26 @@ export default class LearningPage extends Component {
   }
 
   renderCorrect() {
+    const { nextWord = {} } = this.context
     return (
-      <div>
+      <>
+      <div className='DisplayScore'>
         <p>Correct! The correct answer is {this.state.answer.totalScore}</p>
         <h2>`Good try, but not quite right :(`</h2>
+        Your total score is: {nextWord.totalScore}`
       </div>
+      </>
     )
   }
 
   renderIncorrect() {
+    const { nextWord = {} } = this.context
     return (
-      <div>
-        <p>`Your total score is: {this.state.answer.totalScore}</p>
+      <div className='DisplayScore'>
+        <p> Your total score is: {nextWord.totalScore} </p>
+        <br/>
         <h2>`Good try, but not quite right :(`</h2>
-        <p>`The correct translation for {this.context.nextWord.nextWord} was {this.state.answer.answer} and you chose{this.state.nextWord.nextWord}!`</p>
+        <p>`The correct translation for {this.context.nextWord.nextWord} was {this.state.answer.answer} and you chose {this.state.guess}!`</p>
       </div>
     )
   }
