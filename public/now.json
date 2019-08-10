@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "spaced-repitition-client",
+    "name": "spaced-repitition-client",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }
