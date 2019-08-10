@@ -9,17 +9,14 @@ const UserContext = React.createContext({
   language: {},
   words: [],
   nextWord: {},
-  answer: {},
-  isCorrect: 1,
-  setError: () => {},
-  clearError: () => {},
-  setUser: () => {},
+  setError: () => { },
+  clearError: () => { },
+  setUser: () => { },
   setWords: () => [],
-  setNextWord: () => {},
-  setanswer: () => {},
-  setLanguage: () => {},
-  processLogin: () => {},
-  processLogout: () => {},
+  setNextWord: () => { },
+  setLanguage: () => { },
+  processLogin: () => { },
+  processLogout: () => { },
 })
 
 export default UserContext
@@ -27,7 +24,15 @@ export default UserContext
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user: {}, error: null }
+    const state = {
+      user: {},
+      error: null,
+      language: {},
+      words: [],
+      nextWord: {},
+      answer: {},
+      isCorrect: 1,
+    }
 
     const jwtPayload = TokenService.parseAuthToken()
 
@@ -70,7 +75,6 @@ export class UserProvider extends Component {
   }
 
   setLanguage = language => {
-    console.log(language)
     this.setState({ language })
   }
 
@@ -84,10 +88,29 @@ export class UserProvider extends Component {
   }
 
   setAnswer = answer => {
-    this.setState({answer})
+    console.log(answer)
+    this.setState({ answer })
   }
 
-  
+  handleSubmit = answer => {
+    console.log(answer)
+    this.setState({
+      answer : answer
+    })
+  }
+
+  // setIsCorrect = answer => {
+  //   if (!answer) {
+
+  //   }
+  //   if (answer === true) {
+  //     this.setState({ isCorrect: 1 })
+  //   } else if (answer === true) {
+  //     this.setState({ isCorrect: 2 })
+  //   }
+  // }
+
+
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
     const jwtPayload = TokenService.parseAuthToken()
@@ -137,6 +160,7 @@ export class UserProvider extends Component {
       language: this.state.language,
       nextWord: this.state.nextWord,
       answer: this.answer,
+      isCorrect: this.isCorrect,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
@@ -144,8 +168,10 @@ export class UserProvider extends Component {
       setWords: this.setWords,
       setAnswer: this.setAnswer,
       setNextWord: this.setNextWord,
+      setIsCorrect: this.setIsCorrect,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
+      handleSubmit: this.handleSubmit,
     }
     return (
       <UserContext.Provider value={value}>

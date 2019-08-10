@@ -5,6 +5,16 @@ import UserContext from '../../contexts/UserContext';
 import LanguageService from '../../services/language-service'
 
 export default class LearningPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      answer: {},
+      isCorrect: null,
+      guess: null,
+    }
+  }
+
+  static contextType = UserContext
 
   componentDidMount() {
     setTimeout(() => {
@@ -19,21 +29,33 @@ export default class LearningPage extends Component {
     }, 600)
   }
 
+  handleNextClick = () => {
+    this.setState({
+      isCorrect: null,
+      answer: {},
+    })
+  }
+
   handleSubmit = ev => {
     ev.preventDefault()
-    const {guess} = ev.target
+    const { guess } = ev.target
     console.log(guess.value)
     LanguageService.postGuess({
       guess: guess.value
     })
-    .then(res => {
-      guess.value = ''
-      console.log(res)
-      // this.context.processLogin(res)
-    })
-    .catch(res => {
-      this.setState({ error: res.error })
-    })
+      .then(res => {
+        guess.value = ''
+        this.setState({
+          answer: res,
+          isCorrect: res.isCorrect,
+          guess: guess.value
+        })
+        this.context.handleSubmit(this.state.answer)
+        console.log(this.context)
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
   }
 
 
@@ -51,7 +73,7 @@ export default class LearningPage extends Component {
   renderForm() {
     return (
       <form className="enterGuess" onSubmit={this.handleSubmit}>
-        <Label hmtlFor='learn-guess-input'>What's the translation for this word?</Label>
+        <Label for='learn-guess-input'>What's the translation for this word?</Label>
         <Input type="text" id='learn-guess-input' className='guessInput' name="guess" required></Input>
         <Button type="submit">Submit your answer</Button>
       </form>
@@ -68,22 +90,54 @@ export default class LearningPage extends Component {
     )
   }
 
-  renderCorrectAnswer() {
-    const {answer = {}} = this.context
+  renderCorrect() {
     return (
       <div>
-        <p>Correct! The correct answer is {answer.answer}</p>
+        <p>Correct! The correct answer is {this.state.answer.totalScore}</p>
+        <h2>`Good try, but not quite right :(`</h2>
       </div>
     )
   }
 
-  static contextType = UserContext
-  render() {
+  renderIncorrect() {
     return (
-      <>
+      <div>
+        <p>`Your total score is: {this.state.answer.totalScore}</p>
+        <h2>`Good try, but not quite right :(`</h2>
+        <p>`The correct translation for {this.context.nextWord.nextWord} was {this.state.answer.answer} and you chose{this.state.nextWord.nextWord}!`</p>
+      </div>
+    )
+  }
+
+  determineRender() {
+    const answer = this.state.answer
+    if (Object.entries(answer).length === 0 && answer.constructor === Object) {
+      return (
+        <>
         {this.renderNextWord()}
         {this.renderForm()}
         {this.renderScore()}
+        </>
+      )
+    }
+    else if (this.state.isCorrect) {
+      return (
+        <>
+        {this.renderCorrect()}
+        </>
+      )
+    } else if (!this.state.isCorrect){
+      return (
+        <>
+        {this.renderIncorrect()}
+        </>
+      )
+    }
+  }
+  render() {
+    return (
+      <>
+      {this.determineRender()}
       </>
     )
   }
