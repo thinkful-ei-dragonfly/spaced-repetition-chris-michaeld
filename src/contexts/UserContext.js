@@ -16,7 +16,7 @@ const UserContext = React.createContext({
   setUser: () => {},
   setWords: () => [],
   setNextWord: () => {},
-  setanswer: () => {},
+  setAnswer: () => {},
   setLanguage: () => {},
   processLogin: () => {},
   processLogout: () => {},
@@ -70,7 +70,7 @@ export class UserProvider extends Component {
   }
 
   setLanguage = language => {
-    console.log(language)
+    //console.log(language)
     this.setState({ language })
   }
 
@@ -79,7 +79,7 @@ export class UserProvider extends Component {
   }
 
   setNextWord = word => {
-    console.log(word)
+    //console.log(word)
     this.setState({ nextWord: word })
   }
 

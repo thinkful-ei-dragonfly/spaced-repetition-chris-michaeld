@@ -50,7 +50,7 @@ export default class Dashboard extends Component {
             incorrect answer count: {word.incorrect_count}
             </li>
         })
-        console.log(this.context.words)
+        //console.log(this.context.words)
         return (
             <>
             <h3>Words to practice</h3>

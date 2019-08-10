@@ -22,20 +22,19 @@ export default class LearningPage extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const {guess} = ev.target
-    console.log(guess.value)
+    //console.log(guess.value)
     LanguageService.postGuess({
       guess: guess.value
     })
     .then(res => {
       guess.value = ''
       console.log(res)
-      // this.context.processLogin(res)
+      this.context.processLogin(res)
     })
     .catch(res => {
       this.setState({ error: res.error })
     })
   }
-
 
   renderNextWord() {
     const { nextWord = {} } = this.context
