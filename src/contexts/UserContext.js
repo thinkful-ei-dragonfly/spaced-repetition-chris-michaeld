@@ -32,7 +32,6 @@ export class UserProvider extends Component {
       words: [],
       nextWord: {},
       answer: {},
-      isCorrect: 1,
     }
 
     const jwtPayload = TokenService.parseAuthToken()

@@ -78,13 +78,13 @@ class RegistrationForm extends Component {
             required
           />
         </div>
-          <div>
+        <div>
           <Button type="submit">
-          Sign up
+            Sign up
           </Button>
-          </div>
-          {' '}
-          <Link className="already" to='/login'>Already have an account?</Link>
+        </div>
+        {' '}
+        <Link className="already" to='/login'>Already have an account?</Link>
       </form>
     )
   }

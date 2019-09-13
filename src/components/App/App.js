@@ -38,7 +38,7 @@ export default class App extends Component {
               component={LearningRoute}
             />
             <PublicOnlyRoute
-              path={'/register'}
+              exact path={['/', '/register']}
               component={RegistrationRoute}
             />
             <PublicOnlyRoute

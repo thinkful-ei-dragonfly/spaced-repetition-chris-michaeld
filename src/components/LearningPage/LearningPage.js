@@ -19,10 +19,12 @@ export default class LearningPage extends Component {
   static contextType = UserContext
 
   componentDidMount() {
+    console.log(this.context)
     setTimeout(() => {
       this.setState({ error: null })
       LanguageService.getNextWord()
         .then(res => {
+          console.log(res)
           console.log(res.totalScore)
           this.setState({totalScore: res.totalScore})
           this.setState({nextWord : res.nextWord})
@@ -38,15 +40,16 @@ export default class LearningPage extends Component {
 
   handleNextClick = () => {
     this.setState({
+      nextWord : this.state.answer.nextWord
+    })
+    this.setState({
       isCorrect: null,
       answer: {},
     })
     this.setState({
       totalScore : this.state.answer.totalScore
     })
-    this.setState({
-      nextWord : this.state.answer.nextWord
-    })
+    console.log(this.state)
   }
 
   handleSubmit = ev => {
@@ -114,7 +117,7 @@ export default class LearningPage extends Component {
         <h2>You were correct! :D</h2>
       </div>
       <div className='DisplayFeedback'>
-        <p>The correct translation for {this.context.nextWord.nextWord} was {this.state.answer.answer} and you chose {this.state.guess}!</p>
+        <p>The correct translation for {this.state.nextWord} was {this.state.answer.answer} and you chose {this.state.guess}!</p>
         <Button type='button' onClick={this.handleNextClick}>
           Try another word!
         </Button>
